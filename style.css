@@ -1,0 +1,117 @@
+:root {
+    /* Custom Properties */
+    --ff-body: 'Open Sans', sans-serif;
+    --ff-accent: 'Oswald', sans-serif;
+    --clr-body: #01206f;
+    --clr-link-text: #1544BD;
+    --clr-link-text-hover: #666666;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+h2 {
+    font-family: var(--ff-accent);
+    letter-spacing: 3px;
+}
+
+a {
+    font-family: var(--ff-accent);
+    text-decoration: none;
+    margin-block-end: .9375rem;
+    cursor: pointer;
+    color: var(--clr-link-text);
+}
+
+a:focus, 
+a:hover {
+    color: var(--clr-link-text-hover);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    text-rendering: optimizeSpeed;
+    font-family: var(--ff-body);
+    line-height: 1.5;
+    color: var(--clr-body);
+}
+
+.row {
+    display: grid;
+    margin-block-end: 6em;
+}
+
+.text-container {
+    margin-inline: 1em;
+}
+
+.image-container {
+    grid-row: 1 / 2;
+    min-height: 50vh;
+    background-position: center center;
+    background-size: cover;
+ 
+    &.ocean {
+        background-image: url('./images/ocean-1.jpg');
+    }
+    
+    &.desert {
+        background-image: url('./images/desert-1.jpg');
+    }
+    
+    &.forrest {
+        background-image: url('./images/forrest-1.jpg');
+    }
+    
+    &.stars {
+        background-image: url('./images/stars-1.jpg');
+    }
+
+    &.waterfall {
+        background-image: url('./images/waterfall-1.jpg');
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .row {
+        grid-template-columns: 
+            minmax(1rem, 1fr) 
+            minmax(0, 45rem) 
+            minmax(0, 45rem) 
+            minmax(1rem, 1fr);
+        margin-block-end: 0;
+    }
+
+    .text-container {
+        grid-column: 2 / 3;
+        display: grid;
+        align-content: center;
+        margin-inline-end: 2em;
+        margin-block: 2em;
+    }
+
+    .image-container {
+        grid-column: 3 / -1;
+    }
+
+    .row >:first-child:not(.text-container) {
+        grid-column: 1 / 3;
+    }
+
+    .row >:last-child:not(.image-container) {
+        grid-column: 3 / 4;
+        margin-inline-start: 2em;
+    } 
+}
+

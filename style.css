@@ -54,6 +54,11 @@ body {
     margin-inline: 1em;
 }
 
+.wrapper {
+    max-width: 90rem;
+    margin-inline: auto;
+}
+
 .image-container {
     grid-row: 1 / 2;
     min-height: 50vh;
